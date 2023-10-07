@@ -1,14 +1,15 @@
-function number_of_InversionsNaive(arr) {
-    var ctr = 0;
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = i + 1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) 
-              ctr++;
+function find_numbers(arr_num, num) {
+    var result = 0;
+    for (var i = 0; i < arr_num.length; i++) {
+        if (arr_num[i] % 2 === 0 && arr_num[i] !== num) {
+            result++;
+        }
+        if (arr_num[i] === num) {
+            return result;
         }
     }
-    return ctr;
+    return -1;
 }
 
-console.log(number_of_InversionsNaive([0, 3, 2, 5, 9]));   
-console.log(number_of_InversionsNaive([1, 5, 4, 3]));   
-console.log(number_of_InversionsNaive([10, 30, 20, -10]));  
+console.log(find_numbers([1, 2, 3, 4, 5, 6, 7, 8], 5))
+console.log(find_numbers([1, 3, 5, 6, 7, 8], 6))

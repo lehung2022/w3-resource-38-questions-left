@@ -1,14 +1,11 @@
-function number_of_InversionsNaive(arr) {
-    var ctr = 0;
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = i + 1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) 
-              ctr++;
-        }
+function check_a_point(a, b, x, y, r) {
+    var dist_points = (a - x) * (a - x) + (b - y) * (b - y);
+    r *= r;
+    if (dist_points < r) {
+        return true;
     }
-    return ctr;
+    return false;
 }
 
-console.log(number_of_InversionsNaive([0, 3, 2, 5, 9]));   
-console.log(number_of_InversionsNaive([1, 5, 4, 3]));   
-console.log(number_of_InversionsNaive([10, 30, 20, -10]));  
+console.log(check_a_point(0, 0, 2, 4, 6));
+console.log(check_a_point(0, 0, 6, 8, 6));

@@ -1,14 +1,15 @@
-function number_of_InversionsNaive(arr) {
-    var ctr = 0;
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = i + 1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) 
-              ctr++;
+function trailing_zeros_factorial(n) {
+    var result = 0;
+    for (var i = 5; i <= n; i += 5) {
+        var num = i;
+        while (num % 5 === 0) {
+            num /= 5;
+            result++;
         }
     }
-    return ctr;
+    return result;
 }
 
-console.log(number_of_InversionsNaive([0, 3, 2, 5, 9]));   
-console.log(number_of_InversionsNaive([1, 5, 4, 3]));   
-console.log(number_of_InversionsNaive([10, 30, 20, -10]));  
+console.log(trailing_zeros_factorial(8))
+console.log(trailing_zeros_factorial(9))
+console.log(trailing_zeros_factorial(10))

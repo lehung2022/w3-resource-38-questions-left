@@ -1,14 +1,10 @@
-function number_of_InversionsNaive(arr) {
-    var ctr = 0;
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = i + 1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) 
-              ctr++;
-        }
+function dot_product(vector1, vector2) {
+    var result = 0;
+    for (var i = 0; i < 3; i++) {
+      result += vector1[i] * vector2[i];
     }
-    return ctr;
-}
-
-console.log(number_of_InversionsNaive([0, 3, 2, 5, 9]));   
-console.log(number_of_InversionsNaive([1, 5, 4, 3]));   
-console.log(number_of_InversionsNaive([10, 30, 20, -10]));  
+    return result;
+  }
+  console.log(dot_product([1,2,3], [1,2,3]))
+  console.log(dot_product([2,4,6], [2,4,6]))
+  console.log(dot_product([1,1,1], [0,1,-1]))

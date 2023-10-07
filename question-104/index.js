@@ -1,14 +1,15 @@
-function number_of_InversionsNaive(arr) {
-    var ctr = 0;
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = i + 1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) 
-              ctr++;
+function different_values(ara, n) {
+    var max_val = -1;
+    for (var i = 0; i < ara.length; i++) {
+        for (var j = i + 1; j < ara.length; j++) {
+            var x = Math.abs(ara[i] - ara[j]);
+            if (x <= n) {
+                max_val = Math.max(max_val, x)
+            }
         }
     }
-    return ctr;
+    return max_val
 }
-
-console.log(number_of_InversionsNaive([0, 3, 2, 5, 9]));   
-console.log(number_of_InversionsNaive([1, 5, 4, 3]));   
-console.log(number_of_InversionsNaive([10, 30, 20, -10]));  
+console.log(different_values([12, 10, 33, 34], 10));
+console.log(different_values([12, 10, 33, 34], 24));
+console.log(different_values([12, 10, 33, 44], 40));

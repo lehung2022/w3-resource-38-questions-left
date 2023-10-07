@@ -1,14 +1,25 @@
-function number_of_InversionsNaive(arr) {
-    var ctr = 0;
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = i + 1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) 
-              ctr++;
+function digit_to_one(num) {
+
+    var digitSum = function (num) {
+
+        var digit_sum = 0;
+        while (num) {
+            digit_sum += num % 10;
+            num = Math.floor(num / 10);
         }
+
+        return digit_sum;
+    };
+
+    var result = 0;
+
+    while (num >= 10) {
+        result += 1;
+        num = digitSum(num);
     }
-    return ctr;
+
+    return result;
 }
 
-console.log(number_of_InversionsNaive([0, 3, 2, 5, 9]));   
-console.log(number_of_InversionsNaive([1, 5, 4, 3]));   
-console.log(number_of_InversionsNaive([10, 30, 20, -10]));  
+console.log(digit_to_one(123))
+console.log(digit_to_one(156))

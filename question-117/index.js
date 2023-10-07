@@ -1,14 +1,13 @@
-function number_of_InversionsNaive(arr) {
-    var ctr = 0;
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = i + 1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) 
-              ctr++;
+function is_identity_Matrix(matrix_data) {
+    for (var i = 0; i < matrix_data.length; i++) {
+        for (var j = 0; j < matrix_data.length; j++) {
+            if (matrix_data[i][j] !== 1 && i === j || matrix_data[i][j] && i !== j) {
+                return false;
+            }
         }
     }
-    return ctr;
+    return true;
 }
 
-console.log(number_of_InversionsNaive([0, 3, 2, 5, 9]));   
-console.log(number_of_InversionsNaive([1, 5, 4, 3]));   
-console.log(number_of_InversionsNaive([10, 30, 20, -10]));  
+console.log(is_identity_Matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]]))
+console.log(is_identity_Matrix([[1, 0, 1], [0, 1, 0], [0, 0, 1]]))

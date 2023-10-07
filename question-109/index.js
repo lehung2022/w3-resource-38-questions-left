@@ -1,14 +1,22 @@
-function number_of_InversionsNaive(arr) {
-    var ctr = 0;
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = i + 1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) 
-              ctr++;
+function sort_prime(num) {
+
+    var prime_num1 = [],
+        prime_num2 = [];
+    for (var i = 0; i <= num; i++) {
+        prime_num2.push(true);
+    }
+    for (var i = 2; i <= num; i++) {
+        if (prime_num2[i]) {
+            prime_num1.push(i);
+            for (var j = 1; i * j <= num; j++) {
+                prime_num2[i * j] = false;
+            }
         }
     }
-    return ctr;
+
+    return prime_num1;
 }
 
-console.log(number_of_InversionsNaive([0, 3, 2, 5, 9]));   
-console.log(number_of_InversionsNaive([1, 5, 4, 3]));   
-console.log(number_of_InversionsNaive([10, 30, 20, -10]));  
+console.log(sort_prime(5))
+console.log(sort_prime(11))
+console.log(sort_prime(19))

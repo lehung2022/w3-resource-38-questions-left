@@ -1,14 +1,14 @@
-function number_of_InversionsNaive(arr) {
-    var ctr = 0;
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = i + 1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) 
-              ctr++;
-        }
+function is_increasing_digits_Sequence(num) {
+
+    var arr_num = ('' + num).split('');
+
+    for (var i = 0; i < arr_num.length - 1; i++) {
+        if (parseInt(arr_num[i]) >= parseInt(arr_num[i + 1]))
+            return false;
     }
-    return ctr;
+    return true;
 }
 
-console.log(number_of_InversionsNaive([0, 3, 2, 5, 9]));   
-console.log(number_of_InversionsNaive([1, 5, 4, 3]));   
-console.log(number_of_InversionsNaive([10, 30, 20, -10]));  
+console.log(is_increasing_digits_Sequence(123));
+console.log(is_increasing_digits_Sequence(1223));
+console.log(is_increasing_digits_Sequence(45677));

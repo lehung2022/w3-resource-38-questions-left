@@ -1,14 +1,30 @@
-function number_of_InversionsNaive(arr) {
-    var ctr = 0;
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = i + 1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) 
-              ctr++;
+function is_divisible_by3(mask_str) {
+
+    var digitSum = 0,
+        left = '0'.charCodeAt(),
+        right = '9'.charCodeAt(),
+        result = [],
+        mask_data = mask_str.split(''),
+        hash_pos = -1;
+
+    for (var i = 0; i < mask_data.length; i++) {
+        if (left <= mask_data[i].charCodeAt() && mask_data[i].charCodeAt() <= right) {
+            digitSum += mask_data[i].charCodeAt() - left;
+        }
+        else {
+            hash_pos = i;
         }
     }
-    return ctr;
+
+    for (var i = 0; i < 10; i++) {
+        if ((digitSum + i) % 3 === 0) {
+            mask_data[hash_pos] = String.fromCharCode(left + i);
+            result.push(mask_data.join(''));
+        }
+    }
+
+    return result;
 }
 
-console.log(number_of_InversionsNaive([0, 3, 2, 5, 9]));   
-console.log(number_of_InversionsNaive([1, 5, 4, 3]));   
-console.log(number_of_InversionsNaive([10, 30, 20, -10]));  
+console.log(is_divisible_by3("2#0"))
+console.log(is_divisible_by3("4#2"))
